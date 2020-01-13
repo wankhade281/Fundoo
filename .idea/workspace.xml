@@ -1,32 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4ff662cd-dcfe-4b0b-8b87-32b90672c8be" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/fundoo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configuration/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configuration/db_connection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configuration/smtp_config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configuration/test_db_connection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/query.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/template/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/template/error.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/template/forget_password.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/template/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/template/registration.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/template/reset.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/profile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/registration.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/response.py" afterDir="false" />
-    </list>
+    <list default="true" id="4ff662cd-dcfe-4b0b-8b87-32b90672c8be" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
