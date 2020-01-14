@@ -89,8 +89,9 @@ class ListingPages:
         Response(self).jsonResponse(status=200, data=responce_data)
 
     def isTrash(self):
-        responce_data = {'success': True, 'data': [], 'message': ""}
-        db_obj = DatabaseManage()
-        db_obj.read_all('isTrash')
-        responce_data.update({'success': True, 'data': [], 'message': "Data Read Successfully"})
-        Response(self).jsonResponse(status=200, data=responce_data)
+        if self.path == '/istrash':
+            responce_data = {'success': True, 'data': [], 'message': ""}
+            db_obj = DatabaseManage()
+            db_obj.read_all('isTrash')
+            responce_data.update({'success': True, 'data': [], 'message': "Data Read Successfully"})
+            Response(self).jsonResponse(status=200, data=responce_data)

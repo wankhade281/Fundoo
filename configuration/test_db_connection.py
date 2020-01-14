@@ -1,4 +1,4 @@
-from configuration.db_connection import Database
+from configuration.connection import Database
 
 
 def test_db_connection():

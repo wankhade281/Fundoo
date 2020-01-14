@@ -2,12 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ff662cd-dcfe-4b0b-8b87-32b90672c8be" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/admin1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/client.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/login_details.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/service_1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/service_2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/service_3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/service_4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/service_5.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/service_6.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configuration/db_connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/configuration/connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configuration/smtp_config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/configuration/test_db_connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/configuration/test_db_connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/query.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/query.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/profile.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/profile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/registration.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/registration.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -21,6 +45,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -55,6 +80,18 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="428" y="201" width="567" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578992767543">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="428" y="201" width="567" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1299.741@67.27.1299.741" timestamp="1578992767543" />
+    <state x="449" y="145" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1578999961037">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="449" y="145" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1299.741@67.27.1299.741" timestamp="1578999961037" />
+    <state x="167" y="125" width="1099" height="543" key="DiffContextDialog" timestamp="1578992651051">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="167" y="125" width="1099" height="543" key="DiffContextDialog/67.27.1299.741@67.27.1299.741" timestamp="1578992651051" />
     <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1578918078649">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
@@ -63,5 +100,13 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="205" y="31" key="SettingsEditor/67.27.1299.741@67.27.1299.741" timestamp="1578920231049" />
+    <state x="560" y="314" width="303" height="164" key="VCS.ChangelistChooser" timestamp="1578992569406">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="560" y="314" width="303" height="164" key="VCS.ChangelistChooser/67.27.1299.741@67.27.1299.741" timestamp="1578992569406" />
+    <state x="484" y="316" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578989156986">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="484" y="316" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1299.741@67.27.1299.741" timestamp="1578989156986" />
   </component>
 </project>
