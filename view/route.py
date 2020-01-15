@@ -1,12 +1,11 @@
 import jwt
-from requests import Response
 
-from view.profile import ListingPages, Profile
+from view.profile import ListingPages
 from view.registration import FormDetails
+from view.response import Response
 
 
 def openfile(self):
-    p = Profile
     l = ListingPages
     if self.path == '/register':
         with open('template/registration.html', 'r') as f:
@@ -28,11 +27,6 @@ def openfile(self):
             html_string_reset = f.read()
             output = html_string_reset.format(result=token)
             self.wfile.write(self._html(output))
-    elif self.path == '/read':
-        obj = FormDetails
-        obj.read(self)
-    elif self.path == '/profile/read':
-        p.read_pic(self)
     elif self.path == '/isarchive':
         l.isArchieve(self)
     else:
@@ -42,7 +36,6 @@ def openfile(self):
 
 
 def store_data(self):
-    p = Profile
     l = ListingPages
     obj = FormDetails
     if self.path == "/register":
@@ -51,12 +44,8 @@ def store_data(self):
         obj.login(self)
     elif self.path == '/login/forget':
         obj.forget_password(self)
-    elif self.path == '/profile/create':
-        p.create_pic(self)
     elif self.path == '/ispinned':
         l.isPinned(self)
-    elif self.path == '/create':
-        obj.create(self)
     elif 'new' in self.path:
         from urllib.parse import urlparse, parse_qs
         query_comp = parse_qs(urlparse(self.path).query)

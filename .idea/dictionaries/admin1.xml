@@ -2,6 +2,7 @@
   <dictionary name="admin1">
     <words>
       <w>isarchive</w>
+      <w>ispinned</w>
       <w>responce</w>
       <w>smtp</w>
     </words>

@@ -1,13 +1,14 @@
 import base64
+import cgi
 import re
 
 import jwt
 
-
 from configuration.connection import Database
+from view.response import Response
 
 
-class DatabaseManage:
+class Data:
     """Summary:- This class is used to form connection with the database and perform operation update, add and check
     entry into the database
     """
@@ -139,3 +140,83 @@ class DatabaseManage:
             print(x)
         print("Entry read Successfully")
 
+    def create(self):
+        form = cgi.FieldStorage(
+            fp=self.rfile,
+            headers=self.headers,
+            environ={'REQUEST_METHOD': 'POST',
+                     'CONTENT_TYPE': self.headers['Content-Type'],
+                     })
+        responce_data = {'success': True, 'data': [], 'message': ""}
+        form_keys = list(form.keys())
+        data = {'Title': form['Title'].value, 'Description': form['Description'].value, 'Colour': form['Colour'].value,
+                'isPinned': form['isPinned'].value, 'isArchive': form['isArchive'].value,
+                'isTrash': form['isTrash'].value}
+        db_obj = Data()
+        if len(form_keys) == 6:
+            db_obj.create_entry(data)
+            responce_data.update({'success': True, 'data': [], 'message': "Entry Create Successfully"})
+            Response(self).jsonResponse(status=200, data=responce_data)
+        else:
+            responce_data.update({'success': False, 'data': [], 'message': "some values are missing"})
+            Response(self).jsonResponse(status=404, data=responce_data)
+
+    def update(self):
+        form = cgi.FieldStorage(
+            fp=self.rfile,
+            headers=self.headers,
+            environ={'REQUEST_METHOD': 'POST',
+                     'CONTENT_TYPE': self.headers['Content-Type'],
+                     })
+        responce_data = {'success': True, 'data': [], 'message': ""}
+        form_keys = list(form.keys())
+        data = {'id': form['id'].value, 'Title': form['Title'].value, 'Description': form['Description'].value,
+                'Colour': form['Colour'].value, 'isPinned': form['isPinned'].value,
+                'isArchive': form['isArchive'].value, 'isTrash': form['isTrash'].value}
+        db_obj = Data()
+        if len(form_keys) == 7:
+            db_obj.update_entry(data)
+            responce_data.update({'success': True, 'data': [], 'message': "Data Update Successfully"})
+            Response(self).jsonResponse(status=200, data=responce_data)
+        else:
+            responce_data.update({'success': False, 'data': [], 'message': "some values are missing"})
+            Response(self).jsonResponse(status=404, data=responce_data)
+
+    def read(self):
+        form = cgi.FieldStorage(
+            fp=self.rfile,
+            headers=self.headers,
+            environ={'REQUEST_METHOD': 'POST',
+                     'CONTENT_TYPE': self.headers['Content-Type'],
+                     })
+        responce_data = {'success': True, 'data': [], 'message': ""}
+        form_keys = list(form.keys())
+        data = {'id': form['id'].value}
+        db_obj = Data()
+        if len(form_keys) == 1:
+            db_obj.read_entry(data)
+            responce_data.update({'success': True, 'data': [], 'message': "Data read Successfully"})
+            Response(self).jsonResponse(status=200, data=responce_data)
+        else:
+            responce_data.update({'success': False, 'data': [], 'message': "some values are missing"})
+            Response(self).jsonResponse(status=404, data=responce_data)
+
+    def delete(self):
+        if self.path == "/delete":
+            form = cgi.FieldStorage(
+                fp=self.rfile,
+                headers=self.headers,
+                environ={'REQUEST_METHOD': 'POST',
+                         'CONTENT_TYPE': self.headers['Content-Type'],
+                         })
+            responce_data = {'success': True, 'data': [], 'message': ""}
+            form_keys = list(form.keys())
+            data = {'id': form['id'].value}
+            db_obj = Data()
+            if len(form_keys) == 1:
+                db_obj.delete_entry(data)
+                responce_data.update({'success': True, 'data': [], 'message': "Data Delete Successfully"})
+                Response(self).jsonResponse(status=200, data=responce_data)
+            else:
+                responce_data.update({'success': False, 'data': [], 'message': "some values are missing"})
+                Response(self).jsonResponse(status=404, data=responce_data)

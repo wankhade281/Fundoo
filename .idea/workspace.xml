@@ -2,24 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ff662cd-dcfe-4b0b-8b87-32b90672c8be" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/admin1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservices/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservices/client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservices/login_details.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservices/service_1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservices/service_2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservices/service_3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservices/service_4.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservices/service_5.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservices/service_6.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/admin1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/admin1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configuration/db_connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/configuration/connection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configuration/smtp_config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/configuration/test_db_connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/configuration/test_db_connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configuration/test_db_connection.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/service_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/service_1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/query.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/query.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/serve.py" beforeDir="false" afterPath="$PROJECT_DIR$/serve.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/profile.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/profile.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/registration.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/registration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/route.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/route.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +95,10 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="560" y="314" width="303" height="164" key="VCS.ChangelistChooser/67.27.1299.741@67.27.1299.741" timestamp="1578992569406" />
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1579062343176">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1579062343176" />
     <state x="484" y="316" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578989156986">
       <screen x="67" y="27" width="1299" height="741" />
     </state>

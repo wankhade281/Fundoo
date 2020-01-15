@@ -14,7 +14,7 @@ from nameko.web.handlers import http
 class HttpService(object):
     name = "user_services"
 
-    login_service = RpcProxy('login_service')
+    login = RpcProxy('login_service')
 
     @http('GET', '/register/<username>')
     def get_method(self, request, username):
@@ -25,5 +25,5 @@ class HttpService(object):
     @http('GET', '/login')
     def get_method(self, request):
         print(request)
-        return self.login_service
+        return self.login
 

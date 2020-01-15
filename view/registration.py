@@ -3,7 +3,7 @@ import cgi
 import jwt
 
 from configuration.connection import SMTP
-from model.query import DatabaseManage
+from model.query import Data
 from view.response import Response
 
 
@@ -21,7 +21,7 @@ class FormDetails:
             responce_data = {'success': True, 'data': [], 'message': ""}
             data = {'email': form['email'].value, 'password': form['password'].value,
                     'confirm_password': form['confirm_password'].value}
-            db_obj = DatabaseManage()
+            db_obj = Data()
             result_passwd = db_obj.password_validate(data)
             result_email = db_obj.email_validate(data['email'])
             if result_email and result_passwd:
@@ -57,7 +57,7 @@ class FormDetails:
                          'CONTENT_TYPE': self.headers['Content-Type'],
                          })
             data = {'email': form['email'].value, 'password': form['password'].value}
-            db_obj = DatabaseManage()
+            db_obj = Data()
             encoded_jwt = jwt.encode({'some': data}, 'secret', algorithm='HS256').decode("UTF-8")
             responce_data = {'message': encoded_jwt}
             if db_obj.email_validate(data['email']):
@@ -84,7 +84,7 @@ class FormDetails:
                      })
         responce_data = {'success': True, 'data': [], 'message': ""}
         data = {'email': form['email'].value}
-        db_obj = DatabaseManage()
+        db_obj = Data()
         if db_obj.email_exist(data):
             responce_data.update({'success': False, 'data': [], 'message': "Not a Register User"})
             Response(self).jsonResponse(status=404, data=responce_data)
@@ -108,91 +108,11 @@ class FormDetails:
         responce_data = {'success': True, 'data': [], 'message': ""}
         form_keys = list(form.keys())
         data = {'password': form['password'].value}
-        db_obj = DatabaseManage()
+        db_obj = Data()
         if len(form_keys) < 2:
             responce_data.update({'success': False, 'data': [], 'message': "some values are missing"})
             Response(self).jsonResponse(status=404, data=responce_data)
         else:
             db_obj.update_password(email_id, data['password'])
             responce_data.update({'success': True, 'data': [], 'message': "Password Reset Successfully"})
-            Response(self).jsonResponse(status=404, data=responce_data)
-
-    def create(self):
-        form = cgi.FieldStorage(
-            fp=self.rfile,
-            headers=self.headers,
-            environ={'REQUEST_METHOD': 'POST',
-                     'CONTENT_TYPE': self.headers['Content-Type'],
-                     })
-        responce_data = {'success': True, 'data': [], 'message': ""}
-        form_keys = list(form.keys())
-        data = {'Title': form['Title'].value, 'Description': form['Description'].value, 'Colour': form['Colour'].value, 'isPinned': form['isPinned'].value, 'isArchive': form['isArchive'].value, 'isTrash': form['isTrash'].value}
-        db_obj = DatabaseManage()
-        if len(form_keys) == 6:
-            db_obj.create_entry(data)
-            responce_data.update({'success': True, 'data': [], 'message': "Entry Create Successfully"})
-            Response(self).jsonResponse(status=200, data=responce_data)
-        else:
-            responce_data.update({'success': False, 'data': [], 'message': "some values are missing"})
-            Response(self).jsonResponse(status=404, data=responce_data)
-
-    def update(self):
-        if self.path == '/update':
-            form = cgi.FieldStorage(
-                fp=self.rfile,
-                headers=self.headers,
-                environ={'REQUEST_METHOD': 'POST',
-                         'CONTENT_TYPE': self.headers['Content-Type'],
-                         })
-            responce_data = {'success': True, 'data': [], 'message': ""}
-            form_keys = list(form.keys())
-            data = {'id': form['id'].value, 'Title': form['Title'].value, 'Description': form['Description'].value,
-                    'Colour': form['Colour'].value, 'isPinned': form['isPinned'].value,
-                    'isArchive': form['isArchive'].value, 'isTrash': form['isTrash'].value}
-            db_obj = DatabaseManage()
-            if len(form_keys) == 7:
-                db_obj.update_entry(data)
-                responce_data.update({'success': True, 'data': [], 'message': "Data Update Successfully"})
-                Response(self).jsonResponse(status=200, data=responce_data)
-            else:
-                responce_data.update({'success': False, 'data': [], 'message': "some values are missing"})
-                Response(self).jsonResponse(status=404, data=responce_data)
-
-    def delete(self):
-        if self.path == "/delete":
-            form = cgi.FieldStorage(
-                fp=self.rfile,
-                headers=self.headers,
-                environ={'REQUEST_METHOD': 'POST',
-                         'CONTENT_TYPE': self.headers['Content-Type'],
-                         })
-            responce_data = {'success': True, 'data': [], 'message': ""}
-            form_keys = list(form.keys())
-            data = {'id': form['id'].value}
-            db_obj = DatabaseManage()
-            if len(form_keys) == 1:
-                db_obj.delete_entry(data)
-                responce_data.update({'success': True, 'data': [], 'message': "Data Delete Successfully"})
-                Response(self).jsonResponse(status=200, data=responce_data)
-            else:
-                responce_data.update({'success': False, 'data': [], 'message': "some values are missing"})
-                Response(self).jsonResponse(status=404, data=responce_data)
-
-    def read(self):
-        form = cgi.FieldStorage(
-            fp=self.rfile,
-            headers=self.headers,
-            environ={'REQUEST_METHOD': 'POST',
-                     'CONTENT_TYPE': self.headers['Content-Type'],
-                     })
-        responce_data = {'success': True, 'data': [], 'message': ""}
-        form_keys = list(form.keys())
-        data = {'id': form['id'].value}
-        db_obj = DatabaseManage()
-        if len(form_keys) == 1:
-            db_obj.read_entry(data)
-            responce_data.update({'success': True, 'data': [], 'message': "Data read Successfully"})
-            Response(self).jsonResponse(status=200, data=responce_data)
-        else:
-            responce_data.update({'success': False, 'data': [], 'message': "some values are missing"})
             Response(self).jsonResponse(status=404, data=responce_data)
