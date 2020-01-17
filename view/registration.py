@@ -59,18 +59,18 @@ class FormDetails:
             data = {'email': form['email'].value, 'password': form['password'].value}
             db_obj = Data()
             encoded_jwt = jwt.encode({'some': data}, 'secret', algorithm='HS256').decode("UTF-8")
-            responce_data = {'message': encoded_jwt}
+            response_data = {'message': encoded_jwt}
             if db_obj.email_validate(data['email']):
                 result = db_obj.user_exist(encoded_jwt)
                 if result:
-                    responce_data.update({'success': False, 'data': [], 'message': "Not a Registered User"})
-                    Response(self).jsonResponse(status=404, data=responce_data)
+                    response_data.update({'success': False, 'data': [], 'message': "Not a Registered User"})
+                    Response(self).jsonResponse(status=404, data=response_data)
                 else:
-                    responce_data.update({'success': True, 'data': [], 'message': "Login Successful"})
-                    Response(self).jsonResponse(status=200, data=responce_data)
+                    response_data.update({'success': True, 'data': [], 'message': "Login Successful"})
+                    Response(self).jsonResponse(status=200, data=response_data)
             else:
-                responce_data.update({'success': False, 'data': [], 'message': "Email not in valid format"})
-                Response(self).jsonResponse(status=404, data=responce_data)
+                response_data.update({'success': False, 'data': [], 'message': "Email not in valid format"})
+                Response(self).jsonResponse(status=404, data=response_data)
         except KeyError:
             print()
 
@@ -82,20 +82,20 @@ class FormDetails:
             environ={'REQUEST_METHOD': 'POST',
                      'CONTENT_TYPE': self.headers['Content-Type'],
                      })
-        responce_data = {'success': True, 'data': [], 'message': ""}
+        response_data = {'success': True, 'data': [], 'message': ""}
         data = {'email': form['email'].value}
         db_obj = Data()
         if db_obj.email_exist(data):
-            responce_data.update({'success': False, 'data': [], 'message': "Not a Register User"})
-            Response(self).jsonResponse(status=404, data=responce_data)
+            response_data.update({'success': False, 'data': [], 'message': "Not a Register User"})
+            Response(self).jsonResponse(status=404, data=response_data)
         else:
             s = SMTP()
             s.start()  # start TLS for security
             s.login()  # Authentication and login
             s.send_mail(form['email'].value)  # sending the mail
             # smtp(form['email'].value)
-            responce_data.update({'success': True, 'data': [], 'message': "Message send Successfully"})
-            Response(self).jsonResponse(status=200, data=responce_data)
+            response_data.update({'success': True, 'data': [], 'message': "Message sent Successfully"})
+            Response(self).jsonResponse(status=200, data=response_data)
 
     def set_password(self, email_id):
         # processing user input submitted in Front end(HTML)
@@ -105,14 +105,14 @@ class FormDetails:
             environ={'REQUEST_METHOD': 'POST',
                      'CONTENT_TYPE': self.headers['Content-Type'],
                      })
-        responce_data = {'success': True, 'data': [], 'message': ""}
+        response_data = {'success': True, 'data': [], 'message': ""}
         form_keys = list(form.keys())
         data = {'password': form['password'].value}
         db_obj = Data()
         if len(form_keys) < 2:
-            responce_data.update({'success': False, 'data': [], 'message': "some values are missing"})
-            Response(self).jsonResponse(status=404, data=responce_data)
+            response_data.update({'success': False, 'data': [], 'message': "some values are missing"})
+            Response(self).jsonResponse(status=404, data=response_data)
         else:
             db_obj.update_password(email_id, data['password'])
-            responce_data.update({'success': True, 'data': [], 'message': "Password Reset Successfully"})
-            Response(self).jsonResponse(status=404, data=responce_data)
+            response_data.update({'success': True, 'data': [], 'message': "Password Reset Successfully"})
+            Response(self).jsonResponse(status=404, data=response_data)

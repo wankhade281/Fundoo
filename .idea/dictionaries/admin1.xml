@@ -1,8 +1,11 @@
 <component name="ProjectDictionaryState">
   <dictionary name="admin1">
     <words>
+      <w>amqp</w>
+      <w>fundoo</w>
       <w>isarchive</w>
       <w>ispinned</w>
+      <w>passwd</w>
       <w>responce</w>
       <w>smtp</w>
     </words>
