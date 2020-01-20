@@ -1,15 +1,15 @@
 import sys
 sys.path.insert(0, '/home/admin1/Demo1/PycharmProjects/fundoo')
-from microserv.models import Data
+from microservices.models import Data
 import jwt
-from nameko.rpc import rpc, RpcProxy
-from microserv.config import SMTP
+from nameko.rpc import rpc
+from microservices.config import SMTP
 
 
-class User(object):
-    name = "data_service"
+class User(object):  # This class is used to handle a services of user
+    name = "log_service"
 
-    log_service = RpcProxy('log_service')
+    # log_service = RpcProxy('log_service')
 
     # @rpc
     # def user_login(self, data):
@@ -31,7 +31,6 @@ class User(object):
         else:
             response = {'success': False, 'data': [], 'message': "Email not in valid format"}
             return response
-            # return self.log_service.login_details(data)
 
     @rpc
     def user_register(self, data):
@@ -51,7 +50,6 @@ class User(object):
             response = {'success': False, 'data': [], 'message': "not a valid email or password and cnf "
                                                                  "password not match"}
             return response
-        # return self.log_service.login_details(data)
 
     @rpc
     def forget_password(self, data):

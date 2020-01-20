@@ -2,22 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ff662cd-dcfe-4b0b-8b87-32b90672c8be" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/gateway/service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microserv/note.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microserv/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/admin1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/admin1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/microserv/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/microserv/client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/login_details.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/service_1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/service_2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/service_3.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/service_4.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/service_5.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/service_6.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/registration.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/registration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/service.py" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microserv/client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microserv/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/microserv/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microserv/dump.rdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microserv/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/microserv/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microserv/note.py" beforeDir="false" afterPath="$PROJECT_DIR$/microserv/note.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microserv/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/microserv/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serve.py" beforeDir="false" afterPath="$PROJECT_DIR$/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcases/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcases/test.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +39,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Programs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/requirements.txt" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -58,6 +53,93 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
+  </component>
+  <component name="RunManager" selected="Python.test_user (1)">
+    <configuration name="redis" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="fundoo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/microserv" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/microserv/example.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_user (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="fundoo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_cases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_cases/test_user.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_user" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="fundoo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pytest" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pytest/test_user.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.redis" />
+      <item itemvalue="Python.test_user" />
+      <item itemvalue="Python.test_user (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.test_user (1)" />
+        <item itemvalue="Python.test_user" />
+        <item itemvalue="Python.redis" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -85,10 +167,14 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="428" y="201" width="581" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1579174349358">
+    <state x="174" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579328341922">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="428" y="201" width="581" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1299.741@67.27.1299.741" timestamp="1579174349358" />
+    <state x="174" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1299.741@67.27.1299.741" timestamp="1579328341922" />
+    <state x="428" y="201" width="598" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1579340297454">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="428" y="201" width="598" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1299.741@67.27.1299.741" timestamp="1579340297454" />
     <state x="524" y="115" width="374" height="562" key="#com.intellij.ide.util.MemberChooser" timestamp="1579094359211">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
@@ -101,14 +187,30 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="167" y="125" width="1099" height="543" key="DiffContextDialog/67.27.1299.741@67.27.1299.741" timestamp="1578992651051" />
-    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1579267660759">
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1579329560983">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1579267660759" />
-    <state x="205" y="31" key="SettingsEditor" timestamp="1579166579707">
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1579329560983" />
+    <state width="1276" height="175" key="GridCell.Tab.0.bottom" timestamp="1579509309745">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="205" y="31" key="SettingsEditor/67.27.1299.741@67.27.1299.741" timestamp="1579166579707" />
+    <state width="1276" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1579509309745" />
+    <state width="1276" height="175" key="GridCell.Tab.0.center" timestamp="1579509309744">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1276" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1579509309744" />
+    <state width="1276" height="175" key="GridCell.Tab.0.left" timestamp="1579509309743">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1276" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1579509309743" />
+    <state width="1276" height="175" key="GridCell.Tab.0.right" timestamp="1579509309744">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1276" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1579509309744" />
+    <state x="205" y="31" key="SettingsEditor" timestamp="1579330213938">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="205" y="31" key="SettingsEditor/67.27.1299.741@67.27.1299.741" timestamp="1579330213938" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1579090818366">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
@@ -117,13 +219,21 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="560" y="314" width="303" height="164" key="VCS.ChangelistChooser/67.27.1299.741@67.27.1299.741" timestamp="1578992569406" />
-    <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1579236721525">
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1579499007339">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1579236721525" />
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1579499007339" />
     <state x="484" y="316" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578989156986">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="484" y="316" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1299.741@67.27.1299.741" timestamp="1578989156986" />
+    <state x="0" y="27" width="707" height="741" key="find.popup" timestamp="1579500928054">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="0" y="27" width="707" height="741" key="find.popup/67.27.1299.741@67.27.1299.741" timestamp="1579500928054" />
+    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1579329700618">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup/67.27.1299.741@67.27.1299.741" timestamp="1579329700618" />
   </component>
 </project>

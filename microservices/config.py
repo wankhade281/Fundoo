@@ -27,7 +27,7 @@ class Database:  # This class is used to form a database connection
         self.mydb.commit()
 
 
-class SMTP:
+class SMTP:  # This class is used for SMTP configuration and sending email
     def __init__(self):
         self.server = os.getenv("SMTP_EXCHANGE_SERVER")
         self.port = os.getenv("SMTP_EXCHANGE_PORT")
@@ -44,6 +44,3 @@ class SMTP:
         data = f"http://localhost:9090/forget/?new={encoded_jwt}"
         msg = MIMEText(data)
         self.s.sendmail(os.getenv("SMTP_EXCHANGE_USER_LOGIN"), email_id, msg.as_string())
-
-    def __del__(self):
-        self.s.quit()

@@ -1,7 +1,5 @@
 """
-    service_1
-    ~~~~~~~~~
-    Example of http GET and POST extension
+http GET and POST extension
 """
 import json
 from nameko.standalone.rpc import ClusterRpcProxy
@@ -16,11 +14,11 @@ class HttpService(object):
     name = "user_services"
 
     @http('POST', '/login')
-    def get_method(self, request):
+    def get_login(self, request):
         request_data = json.loads(request.get_data(as_text=True))
         print(request_data)
         with ClusterRpcProxy(config) as cluster_rpc:
-            response = cluster_rpc.data_service.user_login(request_data)
+            response = cluster_rpc.log_service.user_login(request_data)
             return json.dumps(response)
 
     @http('POST', '/register')
@@ -28,7 +26,7 @@ class HttpService(object):
         request_data = json.loads(request.get_data(as_text=True))
         print(request_data)
         with ClusterRpcProxy(config) as cluster_rpc:
-            response = cluster_rpc.data_service.user_register(request_data)
+            response = cluster_rpc.log_service.user_register(request_data)
             return json.dumps(response)
 
     @http('POST', '/forget')
@@ -36,7 +34,7 @@ class HttpService(object):
         request_data = json.loads(request.get_data(as_text=True))
         print(request_data)
         with ClusterRpcProxy(config) as cluster_rpc:
-            response = cluster_rpc.data_service.forget_password(request_data)
+            response = cluster_rpc.log_service.forget_password(request_data)
             return json.dumps(response)
 
     @http('POST', '/api/note')
