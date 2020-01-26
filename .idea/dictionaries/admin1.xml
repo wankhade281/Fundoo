@@ -2,9 +2,13 @@
   <dictionary name="admin1">
     <words>
       <w>amqp</w>
+      <w>chetan</w>
       <w>fundoo</w>
       <w>isarchive</w>
       <w>ispinned</w>
+      <w>istrash</w>
+      <w>mycursor</w>
+      <w>newprofile</w>
       <w>passwd</w>
       <w>responce</w>
       <w>smtp</w>

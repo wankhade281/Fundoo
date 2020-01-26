@@ -1,8 +1,7 @@
 import os
 from http.server import HTTPServer, BaseHTTPRequestHandler
-from view.profile import Profile, ListingPages
-from view.route import openfile, store_data
-from model.query import Data
+from view.utils import is_authenticated
+from view.registration import Formdata
 
 
 class Server(BaseHTTPRequestHandler):  # This class is used to perform operations related to http request
@@ -18,32 +17,34 @@ class Server(BaseHTTPRequestHandler):  # This class is used to perform operation
     def do_GET(self):
         self._set_headers()
         if self.path == '/api/note':
-            Data.read(self)
+            Formdata.read_note(self)
         elif self.path == '/profile/read':
-            Profile.read_pic(self)
+            Formdata.read_profile(self)
         else:
-            openfile(self)
+            Formdata.openfile(self)
 
     def do_PUT(self):
-        ListingPages.isTrash(self)
         if self.path == '/api/note':
-            Data.update(self)
+            Formdata.update_note(self)
         elif self.path == '/profile/update':
-            Profile.update_pic(self)
+            Formdata.update_profile(self)
+        elif self.path == '/istrash':
+            Formdata.store_data(self)
 
     def do_DELETE(self):
         if self.path == '/api/note':
-            Data.delete(self)
+            Formdata.delete_note(self)
         elif self.path == '/profile/delete':
-            Profile.delete_pic(self)
+            Formdata.delete_profile(self)
 
+    @is_authenticated
     def do_POST(self):  # do database operations with posted data
         if self.path == "/api/note":
-            Data.create(self)
+            Formdata.create_note(self)
         elif self.path == '/profile/create':
-            Profile.create_pic(self)
+            Formdata.create_profile(self)
         else:
-            store_data(self)
+            Formdata.store_data(self)
 
 
 server = HTTPServer((os.getenv("SERVER_HOST_IP_ADDRESS"), int(os.getenv('SERVER_HOST_PORT'))), Server)
