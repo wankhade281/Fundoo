@@ -1,17 +1,16 @@
 import re
-import jwt
 from configuration.config import Connection
 
 
 class Query:
-    """Summary:- This class is used to form connection with the database and perform operation update, add and check
+    """Summary:- This class is used to form connection with the database and perform operation check
     entry into the database
     """
     def __init__(self):  # This function is used to form a connection with database
         self.mydbobj = Connection()
 
     def email_exist(self, data):  # This function is used to check email already exist in database using sql query
-        query = "SELECT email from user where email = '" + data['email'] + "'"
+        query = "SELECT email from users where email = '" + data['email'] + "'"
         result = self.mydbobj.run_query(query)
         if len(result):
             return False
@@ -20,13 +19,10 @@ class Query:
 
     def user_exist(self, data):
         # This function is used to check valid user  using sql query for login according return true or false value
-        query = "SELECT * from user where email = '" + data['email'] + "' and password = '" + data['password'] + "'"
+        query = "SELECT * from users where email = '" + data['email'] + "' and password = '" + data['password'] + "'"
         result = self.mydbobj.run_query(query)
-        user_id = result[0][0]
-        email = result[0][1]
-        print(user_id, "----------------->>>>>>>>>>")
-        print(email, "----------------->>>>>>>>>>")
-        if user_id:
+        if result:
+            user_id = result[0][0]
             return user_id
         else:
             return False
@@ -45,9 +41,9 @@ class Query:
             return False
 
     def profile_exist(self, data):
-        query = "SELECT * from profile where Image = '" + data['profile'] + "'"
+        # This function is used to check user is exist or not and return a true and false value
+        query = "SELECT * from profile where user_id='" + data['user_id'] + "'"
         result = self.mydbobj.run_query(query)
-        print(result)
         if len(result):
             return False
         else:

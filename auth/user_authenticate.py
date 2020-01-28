@@ -15,22 +15,18 @@ def is_authenticated(method):
         """this function is used to decode and check whether the user is authorized user or not:param catch:
         True:return:"""
         try:
-            print(self.path, type(self.path))
-            if self.path in ['/api/note', '/profile/create']:
-                print("--------------------->")
+            if self.path in ['/api/note','/profile/create','/profile/delete','/profile/update','/profile/read']:
                 token = self.headers['token']
                 payload = jwt.decode(token, "secret", algorithms='HS256')
-                print(payload)
-                id_key = payload['id']
-                print()
+                id = payload['id']
                 redis_obj = RedisService()
-                token = redis_obj.get(id_key)
-                print(token, '------->token')
+                token = redis_obj.get(id)
                 if token is None:
                     raise ValueError("You Need To Login First")
                 return method(self)
-            else:
-                print("=============================================================")
+            elif self.path in ['/login','/register','/forget','/login/forget']:
+                return method(self)
+            elif 'new' in self.path:
                 return method(self)
         except jwt.ExpiredSignatureError:
             res = response(message="Signature expired. Please log in again.")
@@ -41,5 +37,4 @@ def is_authenticated(method):
         except jwt.InvalidTokenError:
             res = response(message="InvalidTokenError")
             Response(self).jsonResponse(status=404, data=res)
-
     return authenticate_user

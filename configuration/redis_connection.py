@@ -1,8 +1,10 @@
 import os
 import redis
+from .singleton import singleton
 
 
-class RedisService:
+@singleton
+class RedisService:  # This class is used to form connection and execute query related to redis cache
     def __init__(self):
         self.conn = self.connect()
 
@@ -22,8 +24,3 @@ class RedisService:
 
     def disconnect(self):
         self.conn.close()
-
-# con = RedisService(host=os.getenv('REDIS_HOST'),
-#                    port=os.getenv('REDIS_PORT'),
-#                    db=os.getenv('REDIS_DB'),
-#                    password=os.getenv('REDIS_PASSWD'))

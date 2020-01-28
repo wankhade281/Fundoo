@@ -1,12 +1,12 @@
 import cgi
 import jwt
-from model.note import Note
-from model.profile import Profile, ListingPages
-from model.user import User
+from services.note import Note
+from services.profile import Profile, ListingPages
+from services.user import User
 from view.response import Response
 
 
-class Formdata:
+class UserData:
     def create_note(self):
         try:
             form = cgi.FieldStorage(
@@ -15,10 +15,13 @@ class Formdata:
                 environ={'REQUEST_METHOD': 'POST',
                          'CONTENT_TYPE': self.headers['Content-Type'],
                          })
+            token = self.headers['token']
+            payload = jwt.decode(token, "secret", algorithms='HS256')
+            user_id = payload['id']
             data = {'Title': form['Title'].value, 'Description': form['Description'].value,
                     'Colour': form['Colour'].value,
                     'isPinned': form['isPinned'].value, 'isArchive': form['isArchive'].value,
-                    'isTrash': form['isTrash'].value}
+                    'isTrash': form['isTrash'].value, 'user_id': str(user_id)}
             n = Note()
             response = n.create_note(data)
             Response(self).jsonResponse(status=200, data=response)
@@ -33,9 +36,12 @@ class Formdata:
                 environ={'REQUEST_METHOD': 'POST',
                          'CONTENT_TYPE': self.headers['Content-Type'],
                          })
-            data = {'id': form['id'].value, 'Title': form['Title'].value, 'Description': form['Description'].value,
+            token = self.headers['token']
+            payload = jwt.decode(token, "secret", algorithms='HS256')
+            user_id = str(payload['id'])
+            data = {'Title': form['Title'].value, 'Description': form['Description'].value,
                     'Colour': form['Colour'].value, 'isPinned': form['isPinned'].value,
-                    'isArchive': form['isArchive'].value, 'isTrash': form['isTrash'].value}
+                    'isArchive': form['isArchive'].value, 'isTrash': form['isTrash'].value, 'user_id': user_id}
             n = Note()
             response = n.update_note(data)
             Response(self).jsonResponse(status=200, data=response)
@@ -44,13 +50,10 @@ class Formdata:
 
     def delete_note(self):
         try:
-            form = cgi.FieldStorage(
-                fp=self.rfile,
-                headers=self.headers,
-                environ={'REQUEST_METHOD': 'POST',
-                         'CONTENT_TYPE': self.headers['Content-Type'],
-                         })
-            data = {'id': form['id'].value}
+            token = self.headers['token']
+            payload = jwt.decode(token, "secret", algorithms='HS256')
+            user_id = payload['id']
+            data = {'user_id': str(user_id)}
             n = Note()
             response = n.delete_note(data)
             Response(self).jsonResponse(status=200, data=response)
@@ -59,13 +62,10 @@ class Formdata:
 
     def read_note(self):
         try:
-            form = cgi.FieldStorage(
-                fp=self.rfile,
-                headers=self.headers,
-                environ={'REQUEST_METHOD': 'GET',
-                         'CONTENT_TYPE': self.headers['Content-Type'],
-                         })
-            data = {'id': form['id'].value}
+            token = self.headers['token']
+            payload = jwt.decode(token, "secret", algorithms='HS256')
+            user_id = payload['id']
+            data = {'user_id': str(user_id)}
             n = Note()
             response = n.read_note(data)
             Response(self).jsonResponse(status=200, data=response)
@@ -74,15 +74,27 @@ class Formdata:
 
     def create_profile(self):
         try:
-            form = cgi.FieldStorage(
-                fp=self.rfile,
-                headers=self.headers,
-                environ={'REQUEST_METHOD': 'POST',
-                         'CONTENT_TYPE': self.headers['Content-Type'],
-                         })
-            data = {'profile': form['profile'].value}
-            p = Profile
-            p.create_pic(data)
+            ctype, pdict = cgi.parse_header(self.headers.get('content-type'))
+            pdict['boundary'] = bytes(pdict['boundary'], "utf-8")
+            if ctype == 'multipart/form-data':
+                form = cgi.FieldStorage(fp=self.rfile,
+                                        headers=self.headers,
+                                        environ={'REQUEST_METHOD': 'POST',
+                                                 'CONTENT_TYPE': self.headers['Content-Type'],
+                                                 })
+                filename = form['upfile'].filename
+                data = form['upfile'].file.read()
+                open("./media/%s" % filename, "wb").write(data)
+                token = self.headers['token']
+                payload = jwt.decode(token, "secret", algorithms='HS256')
+                user_id = str(payload['id'])
+                profile_data = {
+                    'profile_path': f'./media/{filename}',
+                    'user_id': user_id
+                }
+                p = Profile()
+                response = p.create_pic(profile_data)
+                Response(self).jsonResponse(status=200, data=response)
         except KeyError:
             print()
 
@@ -94,37 +106,37 @@ class Formdata:
                 environ={'REQUEST_METHOD': 'POST',
                          'CONTENT_TYPE': self.headers['Content-Type'],
                          })
-            data = {'profile': form['profile'].value, 'newprofile': form['newprofile'].value}
+            token = self.headers['token']
+            payload = jwt.decode(token, "secret", algorithms='HS256')
+            user_id = str(payload['id'])
+            data = {'profile_path': form['profile_path'].value, 'user_id': user_id}
             p = Profile()
-            p.update_pic(data)
+            response = p.update_pic(data)
+            Response(self).jsonResponse(status=200, data=response)
         except KeyError:
             print()
 
     def read_profile(self):
         try:
-            form = cgi.FieldStorage(
-                fp=self.rfile,
-                headers=self.headers,
-                environ={'REQUEST_METHOD': 'POST',
-                         'CONTENT_TYPE': self.headers['Content-Type'],
-                         })
-            data = {'profile': form['profile'].value}
+            token = self.headers['token']
+            payload = jwt.decode(token, "secret", algorithms='HS256')
+            user_id = str(payload['id'])
+            data = {'user_id': user_id}
             p = Profile()
-            p.read_pic(data)
+            response = p.read_pic(data)
+            Response(self).jsonResponse(status=200, data=response)
         except KeyError:
             print()
 
     def delete_profile(self):
         try:
-            form = cgi.FieldStorage(
-                fp=self.rfile,
-                headers=self.headers,
-                environ={'REQUEST_METHOD': 'POST',
-                         'CONTENT_TYPE': self.headers['Content-Type'],
-                         })
-            data = {'profile': form['profile'].value}
+            token = self.headers['token']
+            payload = jwt.decode(token, "secret", algorithms='HS256')
+            user_id = str(payload['id'])
+            data = {'user_id': user_id}
             p = Profile()
-            p.delete_pic(data)
+            response = p.delete_pic(data)
+            Response(self).jsonResponse(status=200, data=response)
         except KeyError:
             print()
 
@@ -158,7 +170,7 @@ class Formdata:
                 html_string_error = f.read()
                 self.wfile.write(self._html(html_string_error))
 
-    def store_data(self):
+    def store_data(self, version=None):
         l = ListingPages
         u = User()
         if self.path == "/register":
@@ -171,7 +183,7 @@ class Formdata:
                              })
                 data = {'email': form['email'].value, 'password': form['password'].value,
                         'confirm_password': form['confirm_password'].value}
-                response = u.register(data)
+                response = u.user_registration(data)
                 Response(self).jsonResponse(status=200, data=response)
             except KeyError:
                 print()
@@ -198,8 +210,10 @@ class Formdata:
                     environ={'REQUEST_METHOD': 'POST',
                              'CONTENT_TYPE': self.headers['Content-Type'],
                              })
+                version = version.split('/')[0]
+                host = self.headers['Host']
                 data = {'email': form['email'].value}
-                response = u.forget_password(data)
+                response = u.forget_password(data, version, host)
                 Response(self).jsonResponse(status=200, data=response)
             except KeyError:
                 print()

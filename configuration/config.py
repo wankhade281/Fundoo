@@ -1,20 +1,8 @@
 import os
 from dotenv import load_dotenv
 import mysql.connector
-import smtplib
-
+from .singleton import singleton
 load_dotenv()
-
-
-def singleton(myClass):
-    instances = {}
-
-    def get_instance(*args, **kwargs):
-        if myClass not in instances:
-            instances[myClass] = myClass(*args, **kwargs)
-        return instances[myClass]
-
-    return get_instance
 
 
 @singleton
@@ -31,14 +19,6 @@ class Connection:  # This class is used to form a database connection
             database=kwargs["database"],
         )
         return mydb
-
-    def smtp(self):
-        server = os.getenv("SMTP_EXCHANGE_SERVER")
-        port = os.getenv("SMTP_EXCHANGE_PORT")
-        s = smtplib.SMTP(server, port)
-        s.starttls()
-        s.login(os.getenv("SMTP_EXCHANGE_USER_LOGIN"), os.getenv("SMTP_EXCHANGE_USER_PASSWORD"))
-        return s
 
     def run_query(self, query):
         self.mycursor.execute(query)

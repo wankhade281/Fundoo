@@ -2,29 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ff662cd-dcfe-4b0b-8b87-32b90672c8be" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/configuration/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/note.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/admin1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/admin1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/fundoo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fundoo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configuration/connection.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/testcases/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/service.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/query.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/note.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/user.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/query.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/configuration/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/configuration/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configuration/redis_connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/configuration/redis_connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configuration/singleton.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/note.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/profile.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/profile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/user.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_cases/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_cases/test_email_exist.py" beforeDir="false" afterPath="$PROJECT_DIR$/testcases/test_email_exist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_cases/test_multiplication.py" beforeDir="false" afterPath="$PROJECT_DIR$/testcases/test_multiplication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_cases/test_note.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_cases/test_user.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/profile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/registration.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/route.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcases/test_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/testcases/test_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcases/test_email_exist.py" beforeDir="false" afterPath="$PROJECT_DIR$/testcases/test_email_exist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/query.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/query.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/registration.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth/user_authenticate.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,22 +44,22 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Microservices" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/auth" />
       <recent name="$PROJECT_DIR$/view" />
       <recent name="$PROJECT_DIR$/microserv" />
       <recent name="$PROJECT_DIR$/gateway" />
       <recent name="$PROJECT_DIR$/model" />
-      <recent name="$PROJECT_DIR$/microservices" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.config">
+  <component name="RunManager" selected="Python.utils">
     <configuration name="config" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="fundoo" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -151,7 +144,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_user (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="utils" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="fundoo" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -159,11 +152,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_cases" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/view" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_cases/test_user.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/auth/user_authenticate.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -177,15 +170,15 @@
       <item itemvalue="Python.redis_connection" />
       <item itemvalue="Python.server" />
       <item itemvalue="Python.single" />
-      <item itemvalue="Python.test_user (1)" />
+      <item itemvalue="Python.utils" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.utils" />
         <item itemvalue="Python.config" />
         <item itemvalue="Python.redis_connection" />
         <item itemvalue="Python.single" />
         <item itemvalue="Python.server" />
-        <item itemvalue="Python.test_user (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -235,26 +228,26 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="167" y="125" width="1099" height="543" key="DiffContextDialog/67.27.1299.741@67.27.1299.741" timestamp="1578992651051" />
-    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1579929657607">
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1580209742854">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1579929657607" />
-    <state width="1276" height="196" key="GridCell.Tab.0.bottom" timestamp="1580034901115">
+    <state x="499" y="154" width="424" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1580209742854" />
+    <state width="1276" height="196" key="GridCell.Tab.0.bottom" timestamp="1580135459450">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1276" height="196" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1580034901115" />
-    <state width="1276" height="196" key="GridCell.Tab.0.center" timestamp="1580034901115">
+    <state width="1276" height="196" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1580135459450" />
+    <state width="1276" height="196" key="GridCell.Tab.0.center" timestamp="1580135459449">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1276" height="196" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1580034901115" />
-    <state width="1276" height="196" key="GridCell.Tab.0.left" timestamp="1580034901114">
+    <state width="1276" height="196" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1580135459449" />
+    <state width="1276" height="196" key="GridCell.Tab.0.left" timestamp="1580135459449">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1276" height="196" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1580034901114" />
-    <state width="1276" height="196" key="GridCell.Tab.0.right" timestamp="1580034901115">
+    <state width="1276" height="196" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1580135459449" />
+    <state width="1276" height="196" key="GridCell.Tab.0.right" timestamp="1580135459449">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1276" height="196" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1580034901115" />
+    <state width="1276" height="196" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1580135459449" />
     <state x="116" y="27" key="SettingsEditor" timestamp="1579929954766">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
@@ -267,21 +260,25 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="560" y="314" width="303" height="164" key="VCS.ChangelistChooser/67.27.1299.741@67.27.1299.741" timestamp="1578992569406" />
-    <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1579753353427">
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1580209697975">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1579753353427" />
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1580209697975" />
+    <state x="394" y="79" width="634" height="635" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1580100021230">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="394" y="79" width="634" height="635" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1299.741@67.27.1299.741" timestamp="1580100021230" />
     <state x="484" y="316" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578989156986">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="484" y="316" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1299.741@67.27.1299.741" timestamp="1578989156986" />
-    <state x="0" y="27" width="707" height="741" key="find.popup" timestamp="1579500928054">
+    <state x="67" y="27" width="707" height="741" key="find.popup" timestamp="1580188481809">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="0" y="27" width="707" height="741" key="find.popup/67.27.1299.741@67.27.1299.741" timestamp="1579500928054" />
-    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1579329700618">
+    <state x="67" y="27" width="707" height="741" key="find.popup/67.27.1299.741@67.27.1299.741" timestamp="1580188481809" />
+    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1580112252705">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup/67.27.1299.741@67.27.1299.741" timestamp="1579329700618" />
+    <state x="379" y="89" width="672" height="678" key="search.everywhere.popup/67.27.1299.741@67.27.1299.741" timestamp="1580112252705" />
   </component>
 </project>
