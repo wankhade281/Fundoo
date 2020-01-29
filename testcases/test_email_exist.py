@@ -1,6 +1,6 @@
 import jwt
 
-from view.query import Query
+from models.db_query import Query
 
 q = Query()
 

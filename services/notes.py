@@ -1,5 +1,6 @@
-from configuration.config import Connection
-from configuration.redis_connection import RedisService
+from config.db_connection import Connection
+from config.redis_connection import RedisService
+from models.db_query import Query
 
 
 class Note:
@@ -11,10 +12,8 @@ class Note:
         if self.r.get(data['user_id']):
             form_keys = list(data.keys())
             if len(form_keys) == 7:
-                query = "INSERT INTO notes (Title, Description, Colour, isPinned, isArchive, isTrash, user_id) VALUES "\
-                        "('" + data['Title'] + "', '" + data['Description'] + "', '" + data['Colour'] + "', '" + data[
-                            'isPinned'] + "', '" + data['isArchive'] + "', '" + data['isTrash'] + "', '"+data['user_id']+"')"
-                self.mydbobj.query_execute(query)
+                q = Query()
+                q.insert_query(data=data, table_name='notes')
                 print("Entry Created Successfully")
                 return {'success': True, 'data': [], 'message': "Entry Create Successfully"}
             else:
@@ -26,11 +25,8 @@ class Note:
         if self.r.get(data['user_id']):
             form_keys = list(data.keys())
             if len(form_keys) == 7:
-                query = "UPDATE notes SET Title = '" + data['Title'] + "',Description = '" + data[
-                    'Description'] + "',Colour = '" + data['Colour'] + "',isPinned = '" + data[
-                            'isPinned'] + "', isArchive = '" + data['isArchive'] + "', isTrash = '" + data[
-                            'isTrash'] + "' WHERE  user_id = " + data['user_id'] + ""
-                self.mydbobj.query_execute(query)
+                q = Query()
+                q.update_query()
                 return {'success': True, 'data': [], 'message': "Data Update Successfully"}
             else:
                 return {'success': False, 'data': [], 'message': "some values are missing"}
@@ -41,8 +37,8 @@ class Note:
         if self.r.get(data['user_id']):
             form_keys = list(data.keys())
             if len(form_keys) == 1:
-                query = "SELECT * FROM notes WHERE user_id = '" + data['user_id'] + "'"
-                entry = self.mydbobj.run_query(query)
+                q = Query()
+                entry = q.update_query()
                 if len(entry):
                     return {'success': True, 'data': [], 'message': "Data read Successfully"}
                 else:
@@ -56,11 +52,33 @@ class Note:
         if self.r.get(data['user_id']):
             form_keys = list(data.keys())
             if len(form_keys) == 1:
-                query = "DELETE FROM notes WHERE user_id = " + data['user_id'] + ""
-                self.mydbobj.query_execute(query)
+                q = Query()
+                q.delete_query(data)
                 print("Entry delete Successfully")
                 return {'success': True, 'data': [], 'message': "Data Delete Successfully"}
             else:
                 return {'success': False, 'data': [], 'message': "some values are missing"}
         else:
             return {'success': False, 'data': [], 'message': "Not a valid user"}
+
+    def isArchieve(self):
+        query = "SELECT * FROM notes WHERE " 'isArchive' "=1 "
+        result = self.mydbobj.run_query(query)
+        for x in result:
+            print(x)
+        return {'success': True, 'data': [], 'message': "Data Read Successfully"}
+
+    def isPinned(self):
+        query = "SELECT * FROM notes WHERE " 'isPinned' "=1 "
+        result = self.mydbobj.run_query(query)
+        for x in result:
+            print(x)
+        return {'success': True, 'data': [], 'message': "Data Read Successfully"}
+
+    def isTrash(self):
+        if self.path == '/istrash':
+            query = "SELECT * FROM notes WHERE " 'isTrash' "=1"
+            result = self.mydbobj.run_query(query)
+            for x in result:
+                print(x)
+            return {'success': True, 'data': [], 'message': "Data Read Successfully"}

@@ -24,9 +24,10 @@ class Connection:  # This class is used to form a database connection
         self.mycursor.execute(query)
         return self.mycursor.fetchall()
 
-    def query_execute(self, query):
-        self.mycursor.execute(query)
+    def query_execute(self, query,value=None):
+        self.mycursor.execute(query,value)
         self.conn.commit()
+
 
 
 con = Connection(host=os.getenv("HOST"),
