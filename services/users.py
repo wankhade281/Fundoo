@@ -73,14 +73,14 @@ class User:
         else:
             return {'success': False, 'data': [], 'message': "Profile already Exist"}
 
-    def update_pic(self, data):
+    def update_pic(self, data, condition):
         db_obj = Query()
-        result = db_obj.profile_exist(data)
+        result = db_obj.profile_exist(condition)
         if result:
             return {'success': False, 'data': [], 'message': "Profile Not Exist"}
         else:
             q = Query()
-            q.update_picture(data)
+            q.update_que(data, table_name='profile', condition=condition)
             return {'success': True, 'data': [], 'message': "Profile Update Successfully"}
 
     def read_pic(self, data):
@@ -88,7 +88,7 @@ class User:
         result = db_obj.profile_exist(data)
         if result:
             q = Query()
-            val = q.read_que(data, table_name='profile')
+            val = q.read_picture(data)
             print("Image Path ---->",val[0][1])
             path = val[0][1]
             path = path[1:]

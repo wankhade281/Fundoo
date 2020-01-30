@@ -21,12 +21,12 @@ class Note:
         else:
             return {'success': False, 'data': [], 'message': "not a valid user"}
 
-    def update_note(self, data):
-        if self.r.get(data['user_id']):
+    def update_note(self, data, condition):
+        if self.r.get(condition['user_id']):
             form_keys = list(data.keys())
-            if len(form_keys) == 7:
+            if len(form_keys) == 6:
                 q = Query()
-                q.update_query()
+                q.update_que(data=data, table_name='notes', condition=condition)
                 return {'success': True, 'data': [], 'message': "Data Update Successfully"}
             else:
                 return {'success': False, 'data': [], 'message': "some values are missing"}
@@ -38,7 +38,7 @@ class Note:
             form_keys = list(data.keys())
             if len(form_keys) == 1:
                 q = Query()
-                entry = q.update_query()
+                entry = q.read_que(data)
                 if len(entry):
                     return {'success': True, 'data': [], 'message': "Data read Successfully"}
                 else:

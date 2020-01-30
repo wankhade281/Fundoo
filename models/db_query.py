@@ -1,4 +1,3 @@
-import re
 from config.db_connection import Connection
 
 
@@ -53,7 +52,28 @@ class Query:
         print(query)
         self.mydb.query_execute(query=query,value=val)
 
-    def read_que(self, data, table_name):
+    def read_que(self, data, table_name=None):
+        terms = ' AND '.join(f'{key} = %s' for key in data)
+        query = 'SELECT * FROM %s '%table_name + terms
+        args = (data.values())
+        print(terms,"-->>terms")
+        print(query,"-->>query")
+        print(args,"-->>args")
+        column = []
+        rows_values = []
+        val = []
+        for key1, value in data.items():
+            column.append(key1)
+            rows_values.append("%s")
+            val.append(value)
+        print(column, "-->>column")
+        print(rows_values, "-->>row")
+        print(val, "-->>val")
+        result = self.mydb.run_query(query=query, value=val)
+        print(result)
+        return result
+
+    def update_que(self, data, table_name=None, condition=None):
         column = []
         rows_values = []
         val = []
@@ -61,16 +81,19 @@ class Query:
             column.append(key)
             rows_values.append("%s")
             val.append(value)
-        print(column)
-        print(rows_values)
-        print(val)
-        column = ', '.join(column)
-        val_ = ', '.join(['%s'] * len(val))
-        print(val_)
-        # query = "SELECT * FROM profile WHERE user_id = '" + data['user_id'] + "'"
-        query = '''SELECT * FROM %s WHERE %s= %s''' % (table_name, column, val)
-        print(query)
-        self.mydb.query_execute(query=query, value=val[0])
+        column1 = []
+        rows_values1 = []
+        val1 = []
+        for key1, value1 in condition.items():
+            column1.append(key1)
+            rows_values1.append("%s")
+            val1.append(value1)
+        terms = ' , '.join(f'{key} = %s' for key in data)
+        query = 'UPDATE %s SET ' % table_name + terms + ' WHERE %s = %s' % (column1[0], val1[0])
+        self.mydb.query_execute(query=query, value=val)
+
+    # def delete(self, data):
+
 
     def reset_password(self, data):
         query = " UPDATE users SET password = '" + data['password'] + "'WHERE  email = '" + data['email'] + "' "

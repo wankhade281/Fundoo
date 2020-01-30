@@ -20,8 +20,8 @@ class Connection:  # This class is used to form a database connection
         )
         return mydb
 
-    def run_query(self, query):
-        self.mycursor.execute(query)
+    def run_query(self, query, value=None):
+        self.mycursor.execute(query, value)
         return self.mycursor.fetchall()
 
     def query_execute(self, query,value=None):

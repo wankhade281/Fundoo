@@ -15,7 +15,7 @@ def is_authenticated(method):
         """this function is used to decode and check whether the user is authorized user or not:param catch:
         True:return:"""
         try:
-            if self.path in ['/profile/create','/profile/delete','/profile/update','/profile/read']:
+            if self.path in ['/api/note','/profile/create','/profile/delete','/profile/update','/profile/read']:
                 token = self.headers['token']
                 payload = jwt.decode(token, "secret", algorithms='HS256')
                 id = payload['id']

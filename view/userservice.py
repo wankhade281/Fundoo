@@ -129,11 +129,12 @@ class UserData:
             token = self.headers['token']
             payload = jwt.decode(token, "secret", algorithms='HS256')
             user_id = str(payload['id'])
+            condition = {'user_id': user_id}
             data = {'Title': form['Title'].value, 'Description': form['Description'].value,
                     'Colour': form['Colour'].value, 'isPinned': form['isPinned'].value,
-                    'isArchive': form['isArchive'].value, 'isTrash': form['isTrash'].value, 'user_id': user_id}
+                    'isArchive': form['isArchive'].value, 'isTrash': form['isTrash'].value}
             n = Note()
-            response = n.update_note(data)
+            response = n.update_note(data, condition)
             return response
         except KeyError:
             print()
@@ -155,7 +156,7 @@ class UserData:
             token = self.headers['token']
             payload = jwt.decode(token, "secret", algorithms='HS256')
             user_id = payload['id']
-            data = {'user_id': str(user_id)}
+            data = {'user_id': user_id}
             n = Note()
             response = n.read_note(data)
             return response
@@ -190,18 +191,26 @@ class UserData:
 
     def update_profile(self):
         try:
+            ctype, pdict = cgi.parse_header(self.headers.get('content-type'))
+            pdict['boundary'] = bytes(pdict['boundary'], "utf-8")
             form = cgi.FieldStorage(
                 fp=self.rfile,
                 headers=self.headers,
                 environ={'REQUEST_METHOD': 'POST',
                          'CONTENT_TYPE': self.headers['Content-Type'],
                          })
+            filename = form['upfile'].filename
+            data = form['upfile'].file.read()
+            open("./media/%s" % filename, "wb").write(data)
             token = self.headers['token']
             payload = jwt.decode(token, "secret", algorithms='HS256')
             user_id = str(payload['id'])
-            data = {'profile_path': form['profile_path'].value, 'user_id': user_id}
+            condition = {'user_id': user_id}
+            data = {
+                'profile_path': f'./media/{filename}'
+            }
             u = User()
-            response = u.update_pic(data)
+            response = u.update_pic(data, condition)
             return response
         except KeyError:
             print()
